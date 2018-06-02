@@ -3,14 +3,11 @@ var router = express.Router();
 var WildLife = require('../models/wildLife.js')
 
 router.get('/', function(req, res){
-  var query = wildLife.find({});
-  query.exec(function(err, wildlife){
-    if(err){
-      res.send(err);
-    } else{
-      res.json(wildlife);
-    }
-  });
+  WildLife.all()
+    .then((foods) => {
+      res.json(foods)
+    })
+    .catch((error) => res.sendStatus(500).json({error}))
 });
 
 
@@ -19,7 +16,6 @@ router.post('/', function(req, res){
   if (!attributes) {
     return res.status(400).send({error: "No wild life properties provided!"})
   }
-
   WildLife.create(attributes)
     .then((wildlife) => {
       res.json(wildlife)
