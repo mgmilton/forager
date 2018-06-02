@@ -2,14 +2,9 @@ var express = require('express');
 var router = express.Router();
 var WildLife = require('../models/wildLife.js')
 
-router.get('/', function(req, res){
-  WildLife.all()
-    .then((wildlife) => {
-      res.json(wildlife)
-    })
-    .catch((error) => res.sendStatus(500).json({error}))
+router.get('/', function(req, res, next) {
+  res.render('submit', { title: 'Forager' });
 });
-
 
 router.post('/', function(req, res){
   var attributes = req.body.wildlife
