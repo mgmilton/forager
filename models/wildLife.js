@@ -10,9 +10,19 @@ class WildLife {
   static find(id){
     return database('wild_life').where('id', id)
   }
-  
+
   static create(attributes){
     return database('wild_life').insert(attributes).returning('*')
+  }
+
+  static update(id, attributes){
+    return database('wild_life').where('id', id).update(attributes).returning('*')
+  }
+
+  static delete(id){
+    return database('wild_life')
+      .where({'id' : id})
+      .del()
   }
 }
 
