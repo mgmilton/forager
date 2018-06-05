@@ -14,14 +14,33 @@ router.get('/', function(req, res){
 router.post('/', function(req, res){
   var attributes = req.body.wildlife
   if (!attributes) {
-    return res.status(400).send({error: "No wild life properties provided!"})
+    return res.status(400).send({error: "No wildlife properties provided!"})
   }
   WildLife.create(attributes)
     .then((wildlife) => {
       res.json(wildlife)
     })
     .catch((error) => res.status(500).json({error}))
-})
+});
+
+router.delete('/:id', function(req, res){
+  var wildlife_id = req.params.id
+
+  if (!wildlife_id) {
+    return res.status(500).send({error: "No wildlife id provided!"})
+  }
+
+  WildLife.delete(wildlife_id)
+    .then((wildlife) => {
+      res.json(wildlife)
+    })
+    .catch((error) =>
+    res.status(500).json({error}))
+});
+
+router.get('/display', function(req, res){
+  res.render('display')
+});
 
 
 module.exports = router;
