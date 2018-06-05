@@ -7,7 +7,7 @@ const configuration = require('../knexfile')[environment];
 const database = require('knex')(configuration);
 chai.use(chaiHttp);
 
-describe('Routes', () => {
+describe('Client Routes', () => {
 
   it('should return the home page with text', () => {
     return chai.request(server)
@@ -20,6 +20,32 @@ describe('Routes', () => {
       throw error;
     });
   });
-
-
 });
+
+
+describe('POST /wildlife', () => {
+    it('write a wildlife finding', () => {
+      return chai.request(server)
+        .post('/wildlife')
+        .send({
+          wildlife: {name: "Rhubarb",
+          species: "",
+          longitude:  122.63,
+          latitude:  43.9364,
+          location_description:  "Arid patch on a SW hill near the entrance of Reynolds Park",
+          wild_life_description: "Broad curly leafs, 18 inch high red stalks"}
+        })
+        .then((response) => {
+          response.should.have.status(200);
+          response.body[0].should.be.a('object');
+          response.body[0].name.should.equal('Rhubarb');
+          response.body[0].species.should.equal("");
+          response.body[0].longitude.should.equal(122.63);
+          response.body[0].latitude.should.equal(43.9364);
+          response.body[0].location_description.should.equal("Arid patch on a SW hill near the entrance of Reynolds Park");
+        })
+        .catch((error) => {
+          throw error;
+        });
+    });
+  });
