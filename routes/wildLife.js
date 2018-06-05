@@ -21,7 +21,11 @@ router.post('/', function(req, res){
       res.json(wildlife)
     })
     .catch((error) => res.status(500).json({error}))
-})
+});
+
+router.get('/display', function(req, res){
+  res.render('display')
+});
 
 
 module.exports = router;
