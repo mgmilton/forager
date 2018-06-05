@@ -1,32 +1,43 @@
-<div class="form-header">
-  <h2>Log a wildlife</h2>
-</div>
-<form method="post" action="/submit" novalidate>
-  <div class="form-field">
-    <label for="name">Name</label>
-    <input class="input" id="name" name="name" rows="1" autofocus></input>
+<html class="" ng-app="">
+<head>
+  <meta charset="utf-8">
+  <title>Forager</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./stylesheets/style.css"/>
+</head>
+<body>
+  <div class="form-header">
+    <h2>Log a Plant</h2>
   </div>
-  <div class="form-field">
-    <label for="species">Species</label>
-    <input class="input" id="species" name="species" autofocus></input>
-  </div>
-  <div class="form-field">
-    <label for="wild_life_description">Wildlife Description</label>
-    <input class="input" id="wild_life_description" name="wild_life_description" autofocus></input>
-  </div>
-  <div class="form-field">
-    <label for="longitude">Longitude</label>
-    <input class="longitude" id="longitude" name="longitude" type="longitude" value="" rows="5" autofocus/>
-  </div>
-  <div class="form-field">
-    <label for="latitude">Latitude</label>
-    <input class="latitude" id="latitude" name="latitude" type="latitude" value="" rows="5" autofocus/>
-  </div>
-  <div class="form-field">
-    <label for="location_description">Location Description</label>
-    <input class="location_description" id="location_description" name="location_description" type="location_description" value="" rows="5" autofocus/>
-  </div>
-  <div class="form-actions">
-    <button class="btn" type="submit">Send</button>
-  </div>
-</form>
+    <form method="post" action="/submit" novalidate>
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input class="input" id="name" name="name" autofocus></input>
+      </div>
+      <div class="form-field">
+        <label for="species">Species</label>
+        <input class="input" id="species" name="species" autofocus></input>
+      </div>
+      <div class="form-field">
+        <label for="wild_life_description">Plant Description</label>
+        <input class="input" id="wild_life_description" name="wild_life_description" autofocus></input>
+      </div>
+      <div class="form-field">
+        <label for="longitude">Longitude</label>
+        <input class="input" id="longitude" name="longitude" type="longitude" value=""autofocus/>
+      </div>
+      <div class="form-field">
+        <label for="latitude">Latitude</label>
+        <input class="input" id="latitude" name="latitude" type="latitude" value="" autofocus/>
+      </div>
+      <div class="form-field">
+        <label for="location_description">Location Description</label>
+        <input class="input" id="location_description" name="location_description" type="location_description" value="" autofocus/>
+      </div>
+      <div class="form-actions">
+        <button class="btn" type="submit">Send</button>
+      </div>
+    </form>
+  </body>
+</html>
