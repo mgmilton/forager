@@ -36,7 +36,7 @@ app.use('/submit', submitRouter);
 const middlewares = [
   layout(),
   express.static(path.join(__dirname, 'public')),
-  bodyParser.urlencoded(),
+  bodyParser.urlencoded({ extended: true }),
 ]
 
 // catch 404 and forward to error handler
