@@ -22,9 +22,8 @@ describe('Client Routes', () => {
   });
 });
 
-
 describe('POST /wildlife', () => {
-    it('write a wildlife finding', () => {
+    it('creates a wildlife finding', () => {
       return chai.request(server)
         .post('/wildlife')
         .send({
@@ -47,5 +46,31 @@ describe('POST /wildlife', () => {
         .catch((error) => {
           throw error;
         });
+    });
+  });
+
+  describe('DELETE /wildlife/:id', () => {
+    it('deletes a wildlife finding by id', () => {
+      return chai.request(server)
+          .del('/wildlife/29')
+          .then((response) => {
+            response.should.have.status(200)
+          })
+          .catch((error) => {
+            throw error;
+          });
+    });
+  });
+
+  describe('DELETE /wildlife/:id', () => {
+    it('returns an error when wildlife id does not exist', () => {
+      return chai.request(server)
+          .del('/wildlife/')
+          .then((response) => {
+            response.should.have.status(404)
+          })
+          .catch((error) => {
+            throw error;
+          });
     });
   });
