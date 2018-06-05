@@ -10,7 +10,7 @@ var logger = require('morgan');
 var layout = require('express-layout');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var wildLifeRouter = require('./routes/wildlife');
+var wildLifeRouter = require('./routes/wildLife');
 var submitRouter = require('./routes/submit');
 
 var app = express();
