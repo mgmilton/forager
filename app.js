@@ -39,7 +39,7 @@ const middlewares = [
   bodyParser.urlencoded(),
   cookieParser('super-secret-key'),
   session({ cookie: { maxAge: 60000 } }),
-  validator({ extended: false }),
+  validator({ extended: true }),
   flash()
 ]
 
