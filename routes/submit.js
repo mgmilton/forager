@@ -13,7 +13,7 @@ router.post('/', function(req, res){
   }
   WildLife.create(attributes)
     .then((wildlife) => {
-      res.json(wildlife)
+      res.render('index')
     })
     .catch((error) => res.status(500).json({error}))
 })
