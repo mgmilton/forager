@@ -2,8 +2,12 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var validator = require('express-validator');
+var session = require('express-session');
+var flash = require('express-flash');
 var logger = require('morgan');
-
+var layout = require('express-layout');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var wildLifeRouter = require('./routes/wildlife');
@@ -27,6 +31,17 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/wildlife', wildLifeRouter);
 app.use('/submit', submitRouter);
+
+
+const middlewares = [
+  layout(),
+  express.static(path.join(__dirname, 'public')),
+  bodyParser.urlencoded(),
+  cookieParser('super-secret-key'),
+  session({ cookie: { maxAge: 60000 } }),
+  validator({ extended: false }),
+  flash()
+]
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

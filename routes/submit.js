@@ -7,13 +7,13 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res){
-  var attributes = req.body.wildlife
+  var attributes = req.body
   if (!attributes) {
     return res.status(400).send({error: "No wild life properties provided!"})
   }
   WildLife.create(attributes)
     .then((wildlife) => {
-      res.json(wildlife)
+      res.render('index')
     })
     .catch((error) => res.status(500).json({error}))
 })

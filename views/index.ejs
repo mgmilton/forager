@@ -1,26 +1,57 @@
-<html class="no-js" ng-app="meanMapApp">
+<html class="no-js" ng-app="">
 <head>
     <meta charset="utf-8">
     <title>Forager</title>
-    <meta name="description" content="An example demonstrating Google Map integration with MEAN Apps">
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="./stylesheets/style.css"/>
 </head>
 <body>
 <div class="container">
     <div class="header">
-        <ul class="nav nav-pills pull-right">
-            <li active><a href="/wildlife">All Wildlife</a></li>
-            <li active><a href="/submit">Log a Wildlife Finding</a></li>
-        </ul>
         <h3 class="text-muted">Forager</h3>
     </div>
-    <!-- Map and Side Panel -->
     <div class="row content">
-       <!-- tree -->
-        <div class="col-md-7">
-            <div id="tree"><img src="https://assets.bakker.com/ProductPics/810x978/70889-00-BAKI_20160831160216.jpg"></div>
+        <div style="width:275px;height:200px;overflow:hidden;" >
+          <img src="http://www.wildedible.com/sites/all/files/og-images/chanterelle.jpg" width="275px" height="auto">
         </div>
-</div>
+    </div>
+
+    <div class="form-header">
+      <h2>Log a Wildlife Finding</h2>
+    </div>
+      <form method="post" action="/submit" novalidate>
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input class="input" id="name" name="name" autofocus></input>
+        </div>
+        <div class="form-field">
+          <label for="species">Species</label>
+          <input class="input" id="species" name="species" autofocus></input>
+        </div>
+        <div class="form-field">
+          <label for="wild_life_description">Plant or Mushroom Description</label>
+          <input class="input" id="wild_life_description" name="wild_life_description" autofocus></input>
+        </div>
+        <div class="form-field">
+          <label for="longitude">Longitude</label>
+          <input class="input" id="longitude" name="longitude" type="longitude" value=""autofocus/>
+        </div>
+        <div class="form-field">
+          <label for="latitude">Latitude</label>
+          <input class="input" id="latitude" name="latitude" type="latitude" value="" autofocus/>
+        </div>
+        <div class="form-field">
+          <label for="location_description">Location Description</label>
+          <input class="input" id="location_description" name="location_description" type="location_description" value="" autofocus/>
+        </div>
+        <div class="form-actions">
+          <button class="btn" type="submit">Send</button>
+        </div>
+      </form>
+
+      <ul class="nav nav-pills pull-right">API ENDPOINTS
+          <li active><a href="/wildlife">All wildlife</a></li>
+      </ul>
 </body>
 </html>
