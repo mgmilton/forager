@@ -36,11 +36,7 @@ app.use('/submit', submitRouter);
 const middlewares = [
   layout(),
   express.static(path.join(__dirname, 'public')),
-  bodyParser.urlencoded(),
-  cookieParser('super-secret-key'),
-  session({ cookie: { maxAge: 60000 } }),
-  validator({ extended: true }),
-  flash()
+  bodyParser.urlencoded()
 ]
 
 // catch 404 and forward to error handler
