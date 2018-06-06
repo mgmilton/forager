@@ -41,7 +41,7 @@ describe('POST /wildlife', () => {
       })
       .done();
     });
-
+  
     it('creates a wildlife finding', () => {
       return chai.request(server)
         .post('/wildlife')
@@ -71,7 +71,7 @@ describe('POST /wildlife', () => {
   describe('DELETE /wildlife/:id', () => {
     it('deletes a wildlife finding by id', () => {
       return chai.request(server)
-          .del('/wildlife/36')
+          .del('/wildlife/44')
           .then((response) => {
             response.should.have.status(200)
           })
@@ -94,3 +94,4 @@ describe('POST /wildlife', () => {
           });
     });
   });
+});
