@@ -28,9 +28,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
 app.use('/', indexRouter);
+app.use('/map', indexRouter);
 app.use('/users', usersRouter);
 app.use('/wildlife', wildLifeRouter);
 app.use('/submit', submitRouter);
+
 
 
 const middlewares = [
